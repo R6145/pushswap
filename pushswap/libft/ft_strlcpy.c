@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/05 11:41:33 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/19 17:04:01 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-void	pa(t_Stacks_op *s)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	x;
+	size_t	i;
 
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
-}
-
-void	pb(t_Stacks_op *s)
-{
-	int	x;
-
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	i = 0;
+	if (dstsize != 0)
+	{
+		while ((i < dstsize - 1) && (src[i] != '\0'))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

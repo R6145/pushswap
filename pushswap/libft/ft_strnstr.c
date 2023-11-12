@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/08 15:16:57 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/08 17:12:39 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/18 10:36:25 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-int	checker(int argc, char **argv)
+char	*ft_strnstr(char const *haystack, char const *needle, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
-	j = 0;
-	i = 1;
-	if (argc < 2)
-		return (0);
-	while (i < argc)
+	i = 0;
+	if (n == 0 && haystack == NULL)
+		return (NULL);
+	if (*needle == 0)
+		return ((char *)haystack);
+	while (haystack[i] != 0 && i < n)
 	{
 		j = 0;
-		while (argv[i][j] != '\0')
+		while (haystack[i + j] == needle[j] && (needle[j] != 0) && n >= j + i)
 		{
-			if (!((argv[i][j] >= 48 && argv[i][j] <= 57) || argv[i][j] == '-')) //half done for - ex: 2- still cosidreed 5%0
+			if (needle[j + 1] == '\0')
 			{
-				return (0);
+				if (n - 1 < i + j)
+					return (NULL);
+				return ((char *)haystack + (i));
 			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
-}
-
-void	addall(t_Stack *s, char **argv, int argc)
-{
-	int	i;
-
-	i = argc - 1;
-	while (i > 0)
-	{
-		push(s, ft_atoi(argv[i]));
-		i--;
-	}
+	return (NULL);
 }

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/16 17:25:40 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/18 10:56:42 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-void	pa(t_Stacks_op *s)
+int	ft_lstsize(t_list *lst)
 {
-	int	x;
+	int	i;
 
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
-}
-
-void	pb(t_Stacks_op *s)
-{
-	int	x;
-
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	i = 1;
+	if (!lst)
+	{
+		return (0);
+	}
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

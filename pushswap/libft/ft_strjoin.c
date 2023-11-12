@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/11 17:42:41 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/19 12:55:53 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-void	pa(t_Stacks_op *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	x;
+	char	*st;
+	int		i;
+	int		j;
 
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
-}
-
-void	pb(t_Stacks_op *s)
-{
-	int	x;
-
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	if (!s1 || !s2)
+		return (NULL);
+	i = 0;
+	j = ft_strlen(s1);
+	st = (char *)malloc(j + ft_strlen(s2) + 1);
+	if (!st)
+		return (NULL);
+	while (s1[i])
+	{
+		st[i] = s1[i];
+		i++;
+	}
+	while (s2[i - j])
+	{
+		st[i] = s2[i - j];
+		i++;
+	}
+	st[i] = '\0';
+	return (st);
 }

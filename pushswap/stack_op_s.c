@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:40:22 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/08/28 17:56:49 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:56:37 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,18 @@ void static	swap(t_Stack *s1)
 void	sa(t_Stacks_op *s)
 {
 	swap(s->stacka);
+	ft_printf("%s", "sa\n");
 }
 
 void	sb(t_Stacks_op *s)
 {
 	swap(s->stackb);
+	ft_printf("%s", "sb\n");
 }
 
 void	ss(t_Stacks_op *s)
 {
-	sa(s);
-	sb(s);
+	swap(s->stacka);
+	swap(s->stackb);
+	ft_printf("%s", "ss\n");
 }

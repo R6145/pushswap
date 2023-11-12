@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 14:34:38 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/08/28 14:34:41 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/10 09:50:44 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/18 10:29:14 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
 static int	over(const char *str, int sign)
 {

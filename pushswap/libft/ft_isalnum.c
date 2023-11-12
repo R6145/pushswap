@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/03 16:12:48 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/06 18:53:37 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-void	pa(t_Stacks_op *s)
+int	ft_isalnum(int ch)
 {
-	int	x;
-
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
-}
-
-void	pb(t_Stacks_op *s)
-{
-	int	x;
-
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122))
+	{
+		return (1);
+	}
+	else if (ch >= 48 && ch <= 57)
+	{
+		return (1);
+	}
+	return (0);
 }

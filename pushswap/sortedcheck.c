@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   sortedcheck.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/10/28 14:05:33 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/11/09 17:26:17 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	pa(t_Stacks_op *s)
+int	sortedcheck(t_Stack *s)
 {
 	int	x;
+	int	*j;
+	int	z;
 
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
-}
-
-void	pb(t_Stacks_op *s)
-{
-	int	x;
-
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	x = s->top;
+	j = s->array;
+	z = j[x];
+	x--;
+	if (s->top == -1 || s->top == 0)
+		return (1);
+	while (x > -1)
+	{
+		if (z > j[x])
+			return (0);
+		z = j[x];
+		x--;
+	}
+	return (1);
 }

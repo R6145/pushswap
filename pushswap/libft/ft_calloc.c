@@ -1,49 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 12:35:48 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/08/29 14:34:00 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/11 10:54:33 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/19 14:23:48 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-int	find_largest_when(t_Stack	*s1)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
-	int	j;
+	void	*st;
 
-	i = 0;
-	j = 0;
-	while (i <= s1->top)
-	{
-		if (s1->array[i] > s1->array[j])
-		{
-			j = i;
-		}
-		i++;
-	}
-	return (j);
-}
-
-int	find_smallest_when(t_Stack	*s1)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i <= s1->top)
-	{
-		if (s1->array[i] < s1->array[j])
-		{
-			j = i;
-		}
-		i++;
-	}
-	return (j);
+	if (size != 0 && (count > UINT32_MAX / size))
+		return (NULL);
+	st = malloc(count * size);
+	if (!st)
+		return (NULL);
+	ft_bzero(st, count * size);
+	return (st);
 }

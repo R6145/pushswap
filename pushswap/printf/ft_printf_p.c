@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/23 18:50:07 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/24 16:14:54 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "ft_printf.h"
 
-void	pa(t_Stacks_op *s)
+int	pontp(unsigned long long x)
 {
-	int	x;
+	int		i;
+	char	buff[30];
+	char	*base;
+	int		j;
 
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
-}
-
-void	pb(t_Stacks_op *s)
-{
-	int	x;
-
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	i = 0;
+	base = "0123456789abcdef";
+	ft_putstr("0x");
+	if (x == 0)
+	{
+		ft_putchar('0');
+		return (3);
+	}
+	while (x != 0)
+	{
+		buff[i] = base[x % 16];
+		x = x / 16;
+		i++;
+	}
+	j = i;
+	while (i > 0)
+		ft_putchar(buff[i-- - 1]);
+	return (j + 2);
 }

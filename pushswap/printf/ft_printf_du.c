@@ -1,35 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   ft_printf_du.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:38 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/24 09:01:52 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/24 15:37:32 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "ft_printf.h"
 
-void	pa(t_Stacks_op *s)
+int	dec(int x)
 {
-	int	x;
+	int	y;
+	int	i;
 
-	if (s->stackb->top == -1)
-		return ;
-	x = pop(s->stackb);
-	push(s->stacka, x);
-	ft_printf("%s", "pa\n");
+	y = x;
+	i = 0;
+	ft_putnbr(x);
+	if (x == 0)
+		return (1);
+	if (y < 0)
+	{
+		y = y * -1;
+		i++;
+	}
+	while (y != 0)
+	{
+		y = y / 10;
+		i++;
+	}
+	return (i);
 }
 
-void	pb(t_Stacks_op *s)
+int	dec2(unsigned int x)
 {
-	int	x;
+	unsigned int	y;
+	int				i;
 
-	if (s->stacka->top == -1)
-		return ;
-	x = pop(s->stacka);
-	push(s->stackb, x);
-	ft_printf("%s", "pb\n");
+	y = x;
+	i = 0;
+	ft_putnbru(x);
+	if (x == 0 || x == (unsigned int)LONG_MIN)
+		return (1);
+	while (y != 0)
+	{
+		y = y / 10;
+		i++;
+	}
+	return (i);
 }

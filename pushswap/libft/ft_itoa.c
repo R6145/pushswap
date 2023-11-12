@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_utils.c                                   :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 15:45:38 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/08/21 16:12:53 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/16 10:54:39 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/16 13:20:11 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!lst)
-		return ;
-	if (*lst)
-	{
-		new->next = *lst;
-	}
-	*lst = new;
-}
-
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*x;
-
-	x = malloc(sizeof(t_list));
-	if (!x)
-		return (NULL);
-	x->content = content;
-	x->next = NULL;
-	return (x);
-}
-
-int	ft_lstsize(t_list *lst)
+static int	count(int n)
 {
 	int	i;
 
 	i = 1;
-	if (!lst)
+	while (n / 10 != 0)
 	{
-		return (0);
-	}
-	while (lst->next != NULL)
-	{
-		lst = lst->next;
+		n = n / 10;
 		i++;
 	}
 	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*st;
+	int			a;
+	long int	x;
+
+	x = n;
+	a = count(n);
+	if (0 > x)
+	{
+		x = x * -1;
+		a++;
+	}
+	st = (char *)malloc(a + 1);
+	if (!st)
+		return (NULL);
+	st[a] = '\0';
+	while (a--)
+	{
+		st[a] = (x % 10) + '0';
+		x = x / 10;
+	}
+	if (n < 0)
+		st[0] = '-';
+	return (st);
 }

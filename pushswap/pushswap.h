@@ -6,17 +6,19 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/08/29 14:33:48 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:06:12 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
+# include "printf/ft_printf.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_list3
 {
 	int		*array;
 	int		top;
@@ -49,9 +51,11 @@ void		rc(t_Stacks_op *s);
 void		rra(t_Stacks_op *s);
 void		rrb(t_Stacks_op *s);
 void		rrr(t_Stacks_op *s);
+// parsing
+int			checker(int argc, char **argv);
+void		addall(t_Stack *s, char **argv, int argc);
 // sorting algo
-int			find_largest_when(t_Stack *s1);
-int			find_smallest_when(t_Stack *s1);
-void		sorting(t_Stacks_op *s);
+int			sortedcheck(t_Stack *s);
+void		s3(t_Stacks_op *s);
 
 #endif

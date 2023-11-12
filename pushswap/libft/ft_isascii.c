@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackb.c                                           :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 11:36:39 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/08/28 11:36:42 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/07/03 16:26:39 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/07/18 10:56:19 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-int	ssize(t_list *x)
+int	ft_isascii(int ch)
 {
-	return (ft_lstsize(x));
+	if (ch >= 0 && ch <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }
