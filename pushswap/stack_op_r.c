@@ -6,13 +6,13 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:34:35 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:54:32 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:21:51 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void static	rotate(t_Stack *s1)
+static void	rotate(t_Stack *s1)
 {
 	t_Stack	*x;
 	int		y;
@@ -24,7 +24,7 @@ void static	rotate(t_Stack *s1)
 	push(s1, y);
 	while (x->top != -1)
 		push(s1, pop(x));
-	free(x);
+	freestack(x);
 }
 
 void	ra(t_Stacks_op *s)

@@ -6,16 +6,16 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:38:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/07/18 12:02:47 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 14:28:10 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

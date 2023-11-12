@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:24:53 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/09 17:18:00 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:43:32 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ int	main(int argc, char **argv)
 	// ft_printf("%d\n", pop(s->stackb));
 	// ft_printf("%d\n", pop(s->stackb));
 	// ft_printf("%d\n", pop(s->stackb));
+	free(s);
+	freestack(sa);
+	freestack(sb);
 	return (0);
 }
 // int	main(int argc, char **argv)

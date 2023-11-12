@@ -6,14 +6,14 @@
 #    By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 13:07:02 by fmaqdasi          #+#    #+#              #
-#    Updated: 2023/07/18 15:12:37 by fmaqdasi         ###   ########.fr        #
+#    Updated: 2023/11/12 14:26:00 by fmaqdasi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				= cc
 AR				= ar rcs
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+CFLAGS			= -Wall -Wextra -Werror -std=c99 -I.
 
 NAME			= libft.a
 

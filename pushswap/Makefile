@@ -72,6 +72,7 @@ SRCS        :=      libft/ft_atoi.c \
                           stack_op_r.c \
                           stack_op_rr.c \
                           stack_op_s.c \
+                          freestack.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

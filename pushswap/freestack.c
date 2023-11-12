@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   freestack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/12 18:18:17 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/11/12 18:13:57 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/11/12 18:18:11 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-// void	sorting(t_Stacks_op *s)
-// {
-// 	if (s->stacka->top > 2)
-// 		pb(s);
-// 	if (s->stacka->top > 2 && sortedcheck(s->stacka))
-// 		pb(s);
-// 	while (s->stacka->top > 2 && sortedcheck(s->stacka))
-// 	{
-		
-// 	}
-// }
+void	freestack(t_Stack *s)
+{
+	free(s->array);
+	free(s);
+}

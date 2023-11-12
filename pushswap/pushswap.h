@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/09 19:06:12 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:19:13 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int			size(t_Stack *stack);
 int			push(t_Stack *stack, int x);
 int			pop(t_Stack *stack);
 int			peek(t_Stack *stack);
+void		freestack(t_Stack *s);
 // stack opeartions
 t_Stacks_op	*stacks(t_Stack *s1, t_Stack *s2);
 void		sa(t_Stacks_op *s);

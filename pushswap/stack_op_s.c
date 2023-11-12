@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:40:22 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/06 10:56:37 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:03:00 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_Stacks_op	*stacks(t_Stack *s1, t_Stack *s2)
 	return (stackop);
 }
 
-void static	swap(t_Stack *s1)
+static void	swap(t_Stack *s1)
 {
 	int	x;
 	int	y;

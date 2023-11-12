@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:24:54 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/07/16 15:14:30 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 14:29:33 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,11 @@ static int	asign(char **t, char const *s, char c, int a)
 char	**ft_split(char const *s, char c)
 {
 	char	**t;
-	int		i;
-	int		j;
 	int		a;
 
 	if (!s)
 		return (NULL);
 	a = amountofwords(s, c);
-	j = 0;
-	i = 0;
 	t = (char **)malloc(sizeof(char *) * (a + 1));
 	if (!t)
 		return (NULL);

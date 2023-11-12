@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 09:54:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/07/17 15:56:43 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/12 14:59:14 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(x);
 		x = xn;
 	}
-	*lst = NULL; 
+	*lst = NULL;
 }
