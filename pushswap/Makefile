@@ -9,7 +9,7 @@
 
 NAME        := push_swap
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror 
+FLAGS    := -Wall -Wextra -Werror
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
@@ -73,6 +73,8 @@ SRCS        :=      libft/ft_atoi.c \
                           stack_op_rr.c \
                           stack_op_s.c \
                           freestack.c \
+                          sorting.c \
+                          sortcheck.c  \
                           
 OBJS        := $(SRCS:.c=.o)
 

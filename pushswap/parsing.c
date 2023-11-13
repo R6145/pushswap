@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/08 15:16:57 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:53:56 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,4 @@ void	addall(t_Stack *s, char **argv, int argc)
 		i--;
 	}
 }
+//push_swap "45 6 6" "6" dosent work

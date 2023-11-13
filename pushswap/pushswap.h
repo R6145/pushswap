@@ -6,15 +6,15 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/12 18:19:13 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:57:18 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include "printf/ft_printf.h"
 # include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -58,5 +58,9 @@ void		addall(t_Stack *s, char **argv, int argc);
 // sorting algo
 int			sortedcheck(t_Stack *s);
 void		s3(t_Stacks_op *s);
+void		sorting(t_Stacks_op *s);
+int			costcomp(t_Stacks_op *s);
+int			counterstack(t_Stacks_op *s, int i);
+int			countbetween(t_Stacks_op *s, int j);
 
 #endif
