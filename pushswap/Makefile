@@ -75,6 +75,7 @@ SRCS        :=      libft/ft_atoi.c \
                           freestack.c \
                           sorting.c \
                           sortcheck.c  \
+                          sortingutil.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

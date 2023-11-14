@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:24:53 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/13 16:36:07 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:41:28 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,24 @@ int	main(int argc, char **argv)
 		freestack(sb);
 		return (0);
 	}
-	s3(s);
-	// sorting(s);
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("|||||||||||||||||||||\n");
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
+	if (sa->top == 2)
+		s3(s);
+	else
+		sorting(s);
+	ft_printf("|||||||||||||||||||||\n");
+	ft_printf("%d\n", pop(s->stacka));
+	ft_printf("%d\n", pop(s->stacka));
+	ft_printf("%d\n", pop(s->stacka));
+	ft_printf("%d\n", pop(s->stacka));
+	ft_printf("%d\n", pop(s->stacka));
+	ft_printf("%d\n", pop(s->stacka));
+	ft_printf("|||||||||||||||||||||\n");
+	ft_printf("%d\n", pop(s->stackb));
+	ft_printf("%d\n", pop(s->stackb));
+	ft_printf("%d\n", pop(s->stackb));
+	ft_printf("%d\n", pop(s->stackb));
+	ft_printf("%d\n", pop(s->stackb));
+	ft_printf("%d\n", pop(s->stackb));
 	free(s);
 	freestack(sa);
 	freestack(sb);

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/13 15:57:18 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:34:21 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ void		sorting(t_Stacks_op *s);
 int			costcomp(t_Stacks_op *s);
 int			counterstack(t_Stacks_op *s, int i);
 int			countbetween(t_Stacks_op *s, int j);
+int			counter(t_Stacks_op *s, int i);
+int			ra_or_rra(t_Stacks_op *s, int j);
+void		movetoa(t_Stacks_op *s, int i);
+void		between(t_Stacks_op *s, int i, int count);
 
 #endif

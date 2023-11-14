@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/13 16:05:32 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:39:37 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	costcomp(t_Stacks_op *s)
 	arr = s->stackb->array;
 	arr2 = (int *)malloc(sizeof(int) * (s->stackb->max_size + 1));
 	i = s->stackb->top;
-	while (i >= 0)
+	while (i > -1)
 	{
 		arr2[i] = counterstack(s, i);
 		i--;
@@ -73,4 +73,31 @@ int	counterstack(t_Stacks_op *s, int i)
 		j--;
 	}
 	return (luckilest);
+}
+
+int	counter(t_Stacks_op *s, int i)
+{
+	int	*arr;
+	int	j;
+	int	r;
+	int	temp;
+
+	r = 1;
+	j = s->stacka->top;
+	arr = s->stacka->array;
+	temp = arr[j--];
+	while (j != -1)
+	{
+		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
+		{
+			if (s->stacka->top + 1 - j > j)
+				return (r);
+			else
+				return (s->stacka->top - r);
+		}
+		temp = arr[j];
+		j--;
+		r++;
+	}
+	return (r);
 }
