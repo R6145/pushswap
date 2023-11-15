@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/14 18:39:37 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:57:10 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	countbetween(t_Stacks_op *s, int j)
 	int	*arr;
 
 	arr = s->stacka->array;
-	if (s->stacka->top - j > j)
+	if (s->stacka->top - j + 1 > j)
 		return ((j + 1) * 2 + 1);
 	return ((s->stacka->top - j) * 2);
 }
@@ -88,9 +88,9 @@ int	counter(t_Stacks_op *s, int i)
 	temp = arr[j--];
 	while (j != -1)
 	{
-		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
+		if (temp < i && arr[j] > i)
 		{
-			if (s->stacka->top + 1 - j > j)
+			if (s->stacka->top + 1 - j >= j)
 				return (r);
 			else
 				return (s->stacka->top - r);

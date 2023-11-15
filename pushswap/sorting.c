@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/14 18:35:35 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:58:43 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	movetoa(t_Stacks_op *s, int i)
 	temp = s->stackb->array[i];
 	while (temp != s->stackb->array[s->stackb->top])
 		rb(s);
-	count = counter(s, i);
+	count = counter(s, temp);
 	if (temp < s->stacka->array[s->stacka->top])
 		pa(s);
 	else if (temp > s->stacka->array[0])
