@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/15 18:58:43 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:20:22 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	between(t_Stacks_op *s, int i, int count)
 	int	x;
 
 	x = count;
-	if (ra_or_rra(s, i) == 0)
+	// ft_printf("%d\n",x);
+	if (ra_or_rra(s, i) == 0 && x != 0)
 	{
 		while (x != 0)
 		{
@@ -74,7 +75,7 @@ void	between(t_Stacks_op *s, int i, int count)
 			x--;
 		}
 	}
-	else
+	else if (x != 0)
 	{
 		while (x != 0)
 		{
@@ -100,6 +101,10 @@ void	movetoa(t_Stacks_op *s, int i)
 	while (temp != s->stackb->array[s->stackb->top])
 		rb(s);
 	count = counter(s, temp);
+	// ft_printf("%d\n",count);
+	// ft_printf("%d\n",temp);
+	// ft_printf("%d\n",s->stacka->array[0]);
+
 	if (temp < s->stacka->array[s->stacka->top])
 		pa(s);
 	else if (temp > s->stacka->array[0])

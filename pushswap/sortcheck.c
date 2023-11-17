@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/15 18:57:10 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:04:13 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 int	costcomp(t_Stacks_op *s)
 {
-	int	*arr;
 	int	*arr2;
 	int	i;
 	int	temp;
 
-	arr = s->stackb->array;
 	arr2 = (int *)malloc(sizeof(int) * (s->stackb->max_size + 1));
 	i = s->stackb->top;
 	while (i > -1)
 	{
 		arr2[i] = counterstack(s, i);
+		// ft_printf("%d\n",arr2[i]);
 		i--;
 	}
 	i = s->stackb->top;
@@ -42,12 +41,14 @@ int	costcomp(t_Stacks_op *s)
 
 int	countbetween(t_Stacks_op *s, int j)
 {
-	int	*arr;
-
-	arr = s->stacka->array;
-	if (s->stacka->top - j + 1 > j)
-		return ((j + 1) * 2 + 1);
-	return ((s->stacka->top - j) * 2);
+	// 	ft_printf("%d\n",(s->stacka->top + 1)/2);
+	// ft_printf("%d\n",j);
+	// ft_printf("%d\n",(j + 1) * 2 + 1);
+	// ft_printf("%d\n",(s->stacka->top - j) * 2);
+	// ft_printf("hereerere\n");
+	if ((s->stacka->top + 1)/2 > j)
+		return ((s->stacka->top - j) * 2);
+	return (j);
 }
 
 int	counterstack(t_Stacks_op *s, int i)
@@ -90,10 +91,17 @@ int	counter(t_Stacks_op *s, int i)
 	{
 		if (temp < i && arr[j] > i)
 		{
-			if (s->stacka->top + 1 - j >= j)
-				return (r);
+			// 			ft_printf("%d\n",temp);
+			// ft_printf("%d\n",arr[j]);
+			// ft_printf("%d\n",i);
+			// ft_printf("%d\n",j);
+			// 			ft_printf("%d\n",((s->stacka->top + 1)/2));
+			// 			ft_printf("%d\n",r);
+
+			if ((s->stacka->top + 1)/2 > j)
+				return (s->stacka->top - r + 1);
 			else
-				return (s->stacka->top - r);
+				return (r);
 		}
 		temp = arr[j];
 		j--;

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:26:54 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/07/19 13:24:24 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/17 11:40:01 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	if (s + 1 == 0)
-		return (NULL);
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
