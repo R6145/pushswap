@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/17 17:20:22 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/19 14:21:08 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	sorting(t_Stacks_op *s)
 	while (s->stackb->top > -1)
 	{
 		x = costcomp(s);
-		// ft_printf("%d\n",counterstack(s, x));
 		if (counterstack(s, x) == 1)
 			pa(s);
 		else
@@ -60,6 +59,8 @@ void	between(t_Stacks_op *s, int i, int count)
 
 	x = count;
 	// ft_printf("%d\n",x);
+	// 	ft_printf("%d\n",s->stackb->array[i]);
+	// 	ft_printf("%d\n",ra_or_rra(s, i));
 	if (ra_or_rra(s, i) == 0 && x != 0)
 	{
 		while (x != 0)
@@ -114,6 +115,6 @@ void	movetoa(t_Stacks_op *s, int i)
 	}
 	else
 	{
-		between(s, i, count);
+		between(s, temp, count);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:32:41 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/17 15:05:27 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/19 14:21:39 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int	ra_or_rra(t_Stacks_op *s, int i)
 	temp = arr[j--];
 	while (j != -1)
 	{
-		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
+		if (temp < i && arr[j] > i)
 		{
 			// ft_printf("%d\n",temp);
 			// ft_printf("%d\n",arr[j]);
 			// ft_printf("%d\n",s->stackb->array[i]);
+			// ft_printf("%d\n",i);
 			// ft_printf("%d\n",s->stacka->top);
 			// ft_printf("%d\n",j);
 			if ((s->stacka->top + 1)/2 > j)
