@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:24:53 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/19 14:27:51 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:09:54 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(int argc, char **argv)
 		s3(s);
 	else
 		sorting(s);
+	// ft_printf("%d\n",s->stacka->maxnum);
+	// ft_printf("%d\n",s->stacka->minnum);
 	// ft_printf("|||||||||||||||||||||\n");
 	// ft_printf("%d\n", pop(s->stacka));
 	// ft_printf("%d\n", pop(s->stacka));

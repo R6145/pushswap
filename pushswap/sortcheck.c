@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/19 13:58:25 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:43:09 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	costcomp(t_Stacks_op *s)
 	i = s->stackb->top;
 	while (i > -1)
 	{
-		arr2[i] = counterstack(s, i);
-		// ft_printf("%d\n",arr2[i]);
+		arr2[i] = counterstack(s, i) + s->stacka->top - i;
+		// ft_printf("the cost of %d is: %d \n", s->stackb->array[i], arr2[i]);
 		i--;
 	}
 	i = s->stackb->top;
@@ -39,41 +39,31 @@ int	costcomp(t_Stacks_op *s)
 	return (temp);
 }
 
-int	countbetween(t_Stacks_op *s, int j)
-{
-	// 	ft_printf("%d\n",(s->stacka->top + 1)/2);
-	// ft_printf("%d\n",j);
-	// ft_printf("%d\n",(j + 1) * 2 + 1);
-	// ft_printf("%d\n",(s->stacka->top - j) * 2);
-	// ft_printf("hereerere\n");
-	if ((s->stacka->top + 1)/2 > j)
-		return ((s->stacka->top - j) * 2);
-	return (j);
-}
-
 int	counterstack(t_Stacks_op *s, int i)
 {
-	int	luckilest;
-	int	*arr;
-	int	j;
-	int	temp;
+	int		j;
+	long	x;
+	int		*arr;
+	int		temp;
 
 	j = s->stacka->top;
 	arr = s->stacka->array;
-	luckilest = s->stackb->top - i + 1;
-	if (arr[0] < s->stackb->array[i])
-		return (luckilest + 1);
-	else if (arr[s->stacka->top] > s->stackb->array[i])
-		return (luckilest);
-	temp = arr[j--];
+	temp = 0;
+	x = LONG_MIN;
 	while (j != -1)
 	{
-		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
-			return (luckilest + countbetween(s, j));
-		temp = arr[j];
+		if (arr[j] - s->stackb->array[i] > 0 && (long)arr[j] < x)
+		{
+			temp = j;
+			x = arr[temp];
+		}
 		j--;
 	}
-	return (luckilest);
+	if (s->stacka->maxnum < s->stackb->array[i])
+		temp = s->stacka->maxnum;
+	if ((s->stacka->top + 1) / 2 > temp)
+		return (s->stacka->top - temp + 1);
+	return (temp);
 }
 
 int	counter(t_Stacks_op *s, int i)
@@ -91,20 +81,12 @@ int	counter(t_Stacks_op *s, int i)
 	{
 		if (temp < i && arr[j] > i)
 		{
-			// 			ft_printf("%d\n",temp);
-			// ft_printf("%d\n",arr[j]);
-			// ft_printf("%d\n",i);
-			// ft_printf("%d\n",j);
-			// 			ft_printf("%d\n",((s->stacka->top + 1)/2));
-			// 			ft_printf("%d\n",r);
-
-			if ((s->stacka->top + 1)/2 > j)
+			if ((s->stacka->top + 1) / 2 > j)
 				return (s->stacka->top - r + 1);
 			else
 				return (r);
 		}
-		temp = arr[j];
-		j--;
+		temp = arr[j--];
 		r++;
 	}
 	return (r);

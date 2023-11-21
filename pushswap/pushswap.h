@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/15 18:29:56 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:48:49 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -23,6 +24,8 @@ typedef struct s_list3
 	int		*array;
 	int		top;
 	int		max_size;
+	int		maxnum;
+	int		minnum;
 }			t_Stack;
 
 typedef struct s_list2
@@ -31,7 +34,7 @@ typedef struct s_list2
 	t_Stack	*stackb;
 }			t_Stacks_op;
 // parsing
-int			ft_atoi(const char *str);
+// int			ft_atoi(const char *str);
 // stack
 t_Stack		*stack(int size);
 int			size(t_Stack *stack);
@@ -61,10 +64,14 @@ void		s3(t_Stacks_op *s);
 void		sorting(t_Stacks_op *s);
 int			costcomp(t_Stacks_op *s);
 int			counterstack(t_Stacks_op *s, int i);
-int			countbetween(t_Stacks_op *s, int j);
+// int			countbetween(t_Stacks_op *s, int j);
 int			counter(t_Stacks_op *s, int i);
 int			ra_or_rra(t_Stacks_op *s, int j);
 void		movetoa(t_Stacks_op *s, int i);
-void		between(t_Stacks_op *s, int i, int count);
+int			maxa(t_Stacks_op *s);
+int			mina(t_Stacks_op *s);
+void		between_ra(t_Stacks_op *s, int count);
+void		between_rra(t_Stacks_op *s, int count);
+int			samesize(t_Stacks_op *s, int *x);
 
 #endif

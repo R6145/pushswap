@@ -1,0 +1,59 @@
+void	between(t_Stacks_op *s, int i, int count)
+{
+	int	x;
+	int	y;
+
+	x = count;
+	if (ra_or_rra(s, i) == 0 && x != 0)
+	{
+		between_ra(s,i,count);
+		while (x != 0)
+		{
+			ra(s);
+			x--;
+		}
+		x = count;
+		// if (s->samesize == 1 && y == 0)
+		// {
+		// 	if (s->stackb->array[s->stackb->top] < s->stackb->array[s->stackb->top
+		// 		- 1])
+		// 		sb(s);
+		// 	pa(s);
+		// 	x++;
+		// 	s->samesize = 0;
+		// }
+		pa(s);
+		while (x != 0)
+		{
+			rra(s);
+			x--;
+		}
+	}
+	else if (x != 0)
+	{
+		y = ra_or_rra(s, s->stackb->array[s->stackb->top - 1]);
+		while (x != 0)
+		{
+			rra(s);
+			x--;
+		}
+		x = count + 1;
+		// ft_printf("%d\n", s->stackb->array[s->stackb->top - 1]);
+		// if (s->samesize == 1 && y == 1)
+		// {
+		// 	// ft_printf("here\n");
+		// 	if (s->stackb->array[s->stackb->top] > s->stackb->array[s->stackb->top
+		// 		- 1])
+		// 		sb(s);
+		// 	pa(s);
+		// 	s->samesize = 0;
+		// 	x++;
+		// }
+		pa(s);
+		while (x != 0)
+		{
+			ra(s);
+			x--;
+		}
+	}
+}
