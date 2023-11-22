@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/21 17:43:09 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:47:55 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int	counterstack(t_Stacks_op *s, int i)
 	if (s->stacka->maxnum < s->stackb->array[i])
 		temp = s->stacka->maxnum;
 	if ((s->stacka->top + 1) / 2 > temp)
-		return (s->stacka->top - temp + 1);
-	return (temp);
+		return (s->stacka->rot = 1, s->stacka->top - temp + 1);
+	return (s->stacka->rot = 0, temp);
 }
 
 int	counter(t_Stacks_op *s, int i)

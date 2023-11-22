@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:53:24 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/12 14:16:50 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:05:52 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_Stack	*stack(int size)
 		return (NULL);
 	s->top = -1;
 	s->max_size = size;
+	s->rot = -1;
 	return (s);
 }
 
