@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/22 14:47:55 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:12:35 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,28 @@ int	costcomp(t_Stacks_op *s)
 
 int	counterstack(t_Stacks_op *s, int i)
 {
-	int		j;
-	long	x;
-	int		*arr;
-	int		temp;
+	int	*arr;
+	int	j;
+	int	temp;
+	int	flag;
 
 	j = s->stacka->top;
 	arr = s->stacka->array;
-	temp = 0;
-	x = LONG_MIN;
+	temp = arr[j--];
 	while (j != -1)
 	{
-		if (arr[j] - s->stackb->array[i] > 0 && (long)arr[j] < x)
+		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
 		{
-			temp = j;
-			x = arr[temp];
+			if ((s->stacka->top + 1) / 2 > j)
+				return (s->stacka->rot = 1, s->stacka->top - j + 1);
+			return (s->stacka->rot = 0, j);
 		}
+		else if (j == 0 && (temp < s->stackb->array[i]
+				&& arr[s->stacka->top] > s->stackb->array[i]))//fix
+			return (1);
 		j--;
 	}
-	if (s->stacka->maxnum < s->stackb->array[i])
-		temp = s->stacka->maxnum;
-	if ((s->stacka->top + 1) / 2 > temp)
-		return (s->stacka->rot = 1, s->stacka->top - temp + 1);
-	return (s->stacka->rot = 0, temp);
+	return (0);
 }
 
 int	counter(t_Stacks_op *s, int i)
