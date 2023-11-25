@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/23 18:12:35 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:45:58 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	costcomp(t_Stacks_op *s)
 	i = s->stackb->top;
 	while (i > -1)
 	{
-		arr2[i] = counterstack(s, i) + s->stacka->top - i;
-		// ft_printf("the cost of %d is: %d \n", s->stackb->array[i], arr2[i]);
+		arr2[i] = counterstack(s, i);
 		i--;
 	}
 	i = s->stackb->top;
@@ -44,25 +43,36 @@ int	counterstack(t_Stacks_op *s, int i)
 	int	*arr;
 	int	j;
 	int	temp;
-	int	flag;
 
 	j = s->stacka->top;
 	arr = s->stacka->array;
 	temp = arr[j--];
+	if (s->stackb->array[i] > arr[s->stacka->maxnum])
+		return (exct(s, s->stacka->maxnum, 0));
+	if (s->stackb->array[i] < arr[s->stacka->minnum])
+		return (exct(s, s->stacka->minnum, 0));
 	while (j != -1)
 	{
 		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
-		{
-			if ((s->stacka->top + 1) / 2 > j)
-				return (s->stacka->rot = 1, s->stacka->top - j + 1);
-			return (s->stacka->rot = 0, j);
-		}
+			return (exct(s, j, 1));
 		else if (j == 0 && (temp < s->stackb->array[i]
-				&& arr[s->stacka->top] > s->stackb->array[i]))//fix
-			return (1);
+				&& arr[s->stacka->top] > s->stackb->array[i]))
+			return (exct(s, s->stacka->top, 0));
 		j--;
 	}
 	return (0);
+}
+
+int	exct(t_Stacks_op *s, int j, int x)
+{
+	ft_printf("num: %d\n", j);
+	ft_printf("num top: %d\n", (s->stacka->top + 1) / 2);
+	s->stacka->num = j;
+	if (x == 1 && j == 0)
+		return (s->stacka->num = j + 1, s->stacka->rot = 0, 1);
+	if ((s->stacka->top + 1) / 2 > j)
+		return (s->stacka->rot = 0, s->stacka->top - j);
+	return (s->stacka->rot = 1, j);
 }
 
 int	counter(t_Stacks_op *s, int i)

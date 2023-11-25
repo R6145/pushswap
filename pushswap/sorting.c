@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/23 13:20:48 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:41:32 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	sorting(t_Stacks_op *s)
 		s->stacka->maxnum = maxa(s);
 		s->stacka->minnum = mina(s);
 		x = s->stackb->top;
-		if (counterstack(s, x) == 1)
-			pa(s);
-		else
-			movetoa(s, x);
+		// if (counterstack(s, x) == 0)
+		// 	pa(s);
+		// else
+		movetoa(s, x);
 	}
 	while (sortedcheck(s->stacka) != 1)
 	{
@@ -56,6 +56,8 @@ void	sorting(t_Stacks_op *s)
 void	between(t_Stacks_op *s, int i, int count)
 {
 	i = 0;
+	if (i < INT_MIN)
+		ft_printf("%d", i);
 	if (s->stacka->rot == 1 && count != 0)
 		between_ra(s, count);
 	else if (count != 0)
@@ -70,10 +72,10 @@ void	movetoa(t_Stacks_op *s, int i)
 	temp = s->stackb->array[i];
 	count = counterstack(s, i);
 	ft_printf("count = %d\n", count);
-	exit(0);
-	if (temp < s->stacka->array[s->stacka->top])
+	// exit(0);
+	if (s->stacka->num == s->stacka->top)
 		pa(s);
-	else if (temp > s->stacka->array[0] && s->stacka->rot == 0)
+	else if (s->stacka->num == 0)
 	{
 		pa(s);
 		ra(s);

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/22 14:36:01 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:31:22 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list3
 	int		maxnum;
 	int		minnum;
 	int		rot;
+	int		num;
 }			t_Stack;
 
 typedef struct s_list2
@@ -73,6 +74,6 @@ int			maxa(t_Stacks_op *s);
 int			mina(t_Stacks_op *s);
 void		between_ra(t_Stacks_op *s, int count);
 void		between_rra(t_Stacks_op *s, int count);
-int			samesize(t_Stacks_op *s, int *x);
+int			exct(t_Stacks_op *s, int j, int x);
 
 #endif
