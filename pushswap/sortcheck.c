@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/25 18:45:58 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:46:58 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int	counterstack(t_Stacks_op *s, int i)
 	{
 		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
 			return (exct(s, j, 1));
-		else if (j == 0 && (temp < s->stackb->array[i]
-				&& arr[s->stacka->top] > s->stackb->array[i]))
+		else if (j == 0 && arr[0] < s->stackb->array[i]
+			&& arr[s->stacka->top] > s->stackb->array[i])
 			return (exct(s, s->stacka->top, 0));
 		j--;
 	}
+	ft_printf("temp: %d\ncurrent: %d\n",temp,arr[j + 1]);
 	return (0);
 }
 
@@ -68,7 +69,7 @@ int	exct(t_Stacks_op *s, int j, int x)
 	ft_printf("num: %d\n", j);
 	ft_printf("num top: %d\n", (s->stacka->top + 1) / 2);
 	s->stacka->num = j;
-	if (x == 1 && j == 0)
+	if ((x == 1 && j == 0))
 		return (s->stacka->num = j + 1, s->stacka->rot = 0, 1);
 	if ((s->stacka->top + 1) / 2 > j)
 		return (s->stacka->rot = 0, s->stacka->top - j);
