@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:32:41 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/23 13:19:41 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:30:35 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	between_ra(t_Stacks_op *s, int count)
 	int	x;
 
 	x = count;
-	while (x != 0)
+	while (x > 0)
 	{
 		ra(s);
 		x--;
@@ -101,7 +101,7 @@ void	between_rra(t_Stacks_op *s, int count)
 	int	x;
 
 	x = count;
-	while (x != 0)
+	while (x > 0)
 	{
 		rra(s);
 		x--;
