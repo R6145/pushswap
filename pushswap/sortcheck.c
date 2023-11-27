@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/26 18:36:51 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:36:55 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,23 @@ int	counterstack(t_Stacks_op *s, int i)
 
 	j = s->stacka->top;
 	arr = s->stacka->array;
-	temp = arr[j--];
 	if (s->stackb->array[i] > arr[s->stacka->maxnum])
 		return (exct(s, s->stacka->maxnum, 2));
 	if (s->stackb->array[i] < arr[s->stacka->minnum])
 		return (exct(s, s->stacka->minnum, 2));
-	while (j != -1)
+	if (arr[0] < s->stackb->array[i]
+		&& arr[s->stacka->top] > s->stackb->array[i])
+		return (exct(s, s->stacka->maxnum, 2));
+	while (j >= 0)
 	{
-		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
-			return (exct(s, j, 1));
-		else if (j == 0 && arr[0] < s->stackb->array[i]
-			&& arr[s->stacka->top] > s->stackb->array[i])
-			return (exct(s, s->stacka->top, 0));
 		temp = arr[j];
+		if (temp < s->stackb->array[i] && arr[j - 1] > s->stackb->array[i])
+			return (exct(s, j, 1));
+		// else if (j == 0 && arr[0] < s->stackb->array[i]
+		// 	&& arr[s->stacka->top] > s->stackb->array[i])
+		// 	return (exct(s, s->stacka->top, 0));
 		j--;
 	}
-	// ft_printf("temp: %d\ncurrent: %d\n", temp, arr[0]);
 	return (0);
 }
 
@@ -70,7 +71,7 @@ int	exct(t_Stacks_op *s, int j, int x)
 	ft_printf("num: %d\n", j);
 	ft_printf("num top: %d\n", (s->stacka->top + 1) / 2);
 	ft_printf("x: %d\n", x);
-	// s->stacka->num = j;
+	s->stacka->num = j;
 	// if (x == 2)
 	// {
 	// 	j++;
@@ -82,12 +83,12 @@ int	exct(t_Stacks_op *s, int j, int x)
 	// 	return (s->stacka->num = j + 1, s->stacka->rot = 0, 1);
 	// if ((x == 1 && j == 0))
 	// 	return (s->stacka->num = j + 1, s->stacka->rot = 0, 1);
-	if (x == 2 && (s->stacka->top + 1) / 2 > j)
-		return (s->stacka->rot = 0, j);
+	// if (x == 2 && (s->stacka->top + 1) / 2 > j)
+	// 	return (s->stacka->rot = 0, j);
 	// else if (x == 2)
 	// 	return (s->stacka->rot = 1, s->stacka->num++, j++);
 	if ((s->stacka->top + 1) / 2 > j)
-		return (s->stacka->rot = 0, j + 1);
+		return (s->stacka->rot = 0, j);
 	return (s->stacka->rot = 1, s->stacka->top - j);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/26 18:37:46 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:42:50 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	movetoa(t_Stacks_op *s, int i)
 	temp = s->stackb->array[i];
 	count = counterstack(s, i);
 	ft_printf("count = %d\n", count);
+	ft_printf("num = %d\n", s->stacka->num);
 	// exit(0);
 	if (s->stacka->num == s->stacka->top)
 		pa(s);
