@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/27 14:36:55 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:03:30 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ int	counterstack(t_Stacks_op *s, int i)
 	j = s->stacka->top;
 	arr = s->stacka->array;
 	if (s->stackb->array[i] > arr[s->stacka->maxnum])
-		return (exct(s, s->stacka->maxnum, 2));
+		return (betweenmaxmin(s, 2), exct(s, s->stacka->maxnum, 2));
 	if (s->stackb->array[i] < arr[s->stacka->minnum])
-		return (exct(s, s->stacka->minnum, 2));
+		return (betweenmaxmin(s, 1), exct(s, s->stacka->minnum, 2));
 	if (arr[0] < s->stackb->array[i]
 		&& arr[s->stacka->top] > s->stackb->array[i])
-		return (exct(s, s->stacka->maxnum, 2));
+		return (exct(s, s->stacka->top, 2));
 	while (j >= 0)
 	{
 		temp = arr[j];
@@ -68,52 +68,64 @@ int	counterstack(t_Stacks_op *s, int i)
 
 int	exct(t_Stacks_op *s, int j, int x)
 {
-	ft_printf("num: %d\n", j);
-	ft_printf("num top: %d\n", (s->stacka->top + 1) / 2);
-	ft_printf("x: %d\n", x);
+	int	i;
+
+	i = 0;
+	// ft_printf("num: %d\n", j);
+	// ft_printf("num top: %d\n", (s->stacka->top + 1) / 2);
+	// ft_printf("x: %d\n", x);
 	s->stacka->num = j;
-	// if (x == 2)
-	// {
-	// 	j++;
-	// 	s->stacka->num++;
-	// }
-	// if (s->stacka->num > s->stacka->top)
-	// 	s->stacka->num = s->stacka->top;
-	// if (((x == 1 || x == 2 )&& j == 0))
-	// 	return (s->stacka->num = j + 1, s->stacka->rot = 0, 1);
-	// if ((x == 1 && j == 0))
-	// 	return (s->stacka->num = j + 1, s->stacka->rot = 0, 1);
-	// if (x == 2 && (s->stacka->top + 1) / 2 > j)
-	// 	return (s->stacka->rot = 0, j);
-	// else if (x == 2)
-	// 	return (s->stacka->rot = 1, s->stacka->num++, j++);
+	if (x == 1)
+	{
+		i++;
+		s->stacka->between = 1;
+	}
+	if (x == 2)
+	{
+		if ((s->stacka->top + 1) / 2 > j)
+			return (s->stacka->rot = 1, j + 1);
+	}
 	if ((s->stacka->top + 1) / 2 > j)
 		return (s->stacka->rot = 0, j);
-	return (s->stacka->rot = 1, s->stacka->top - j);
+	return (s->stacka->rot = 1, s->stacka->top - j + i);
 }
 
-int	counter(t_Stacks_op *s, int i)
+void	betweenmaxmin(t_Stacks_op *s, int i)
 {
-	int	*arr;
-	int	j;
-	int	r;
-	int	temp;
-
-	r = 1;
-	j = s->stacka->top;
-	arr = s->stacka->array;
-	temp = arr[j--];
-	while (j != -1)
+	if (i == 1)
 	{
-		if (temp < i && arr[j] > i)
-		{
-			if ((s->stacka->top + 1) / 2 > j)
-				return (s->stacka->top - r + 1);
-			else
-				return (r);
-		}
-		temp = arr[j--];
-		r++;
+		if (s->stacka->minnum != s->stacka->top)
+			s->stacka->between = 1;
 	}
-	return (r);
+	if (i == 2)
+	{
+		if (s->stacka->maxnum != 0)
+			s->stacka->between = 1;
+	}
 }
+
+// int	counter(t_Stacks_op *s, int i)
+// {
+// 	int	*arr;
+// 	int	j;
+// 	int	r;
+// 	int	temp;
+
+// 	r = 1;
+// 	j = s->stacka->top;
+// 	arr = s->stacka->array;
+// 	temp = arr[j--];
+// 	while (j != -1)
+// 	{
+// 		if (temp < i && arr[j] > i)
+// 		{
+// 			if ((s->stacka->top + 1) / 2 > j)
+// 				return (s->stacka->top - r + 1);
+// 			else
+// 				return (r);
+// 		}
+// 		temp = arr[j--];
+// 		r++;
+// 	}
+// 	return (r);
+// }

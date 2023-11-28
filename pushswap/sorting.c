@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/27 12:42:50 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:03:39 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,25 @@ void	sorting(t_Stacks_op *s)
 		s->stacka->maxnum = maxa(s);
 		s->stacka->minnum = mina(s);
 		x = s->stackb->top;
-		// if (counterstack(s, x) == 0)
-		// 	pa(s);
-		// else
+		s->stacka->between = 0;
 		movetoa(s, x);
 	}
 	while (sortedcheck(s->stacka) != 1)
 	{
-		ft_printf("|||||||||||||||||||||\n");
-		ft_printf("%d\n", pop(s->stacka));
-		ft_printf("%d\n", pop(s->stacka));
-		ft_printf("%d\n", pop(s->stacka));
-		ft_printf("%d\n", pop(s->stacka));
-		ft_printf("%d\n", pop(s->stacka));
-		ft_printf("%d\n", pop(s->stacka));
-		ft_printf("|||||||||||||||||||||\n");
-		ft_printf("%d\n", pop(s->stackb));
-		ft_printf("%d\n", pop(s->stackb));
-		ft_printf("%d\n", pop(s->stackb));
-		ft_printf("%d\n", pop(s->stackb));
-		ft_printf("%d\n", pop(s->stackb));
-		ft_printf("%d\n", pop(s->stackb));
+		// ft_printf("|||||||||||||||||||||\n");
+		// ft_printf("%d\n", pop(s->stacka));
+		// ft_printf("%d\n", pop(s->stacka));
+		// ft_printf("%d\n", pop(s->stacka));
+		// ft_printf("%d\n", pop(s->stacka));
+		// ft_printf("%d\n", pop(s->stacka));
+		// ft_printf("%d\n", pop(s->stacka));
+		// ft_printf("|||||||||||||||||||||\n");
+		// ft_printf("%d\n", pop(s->stackb));
+		// ft_printf("%d\n", pop(s->stackb));
+		// ft_printf("%d\n", pop(s->stackb));
+		// ft_printf("%d\n", pop(s->stackb));
+		// ft_printf("%d\n", pop(s->stackb));
+		// ft_printf("%d\n", pop(s->stackb));
 		rra(s);
 	}
 }
@@ -71,12 +69,12 @@ void	movetoa(t_Stacks_op *s, int i)
 
 	temp = s->stackb->array[i];
 	count = counterstack(s, i);
-	ft_printf("count = %d\n", count);
-	ft_printf("num = %d\n", s->stacka->num);
+	// ft_printf("count = %d\n", count);
+	// ft_printf("num = %d\n", s->stacka->num);
 	// exit(0);
-	if (s->stacka->num == s->stacka->top)
+	if (s->stacka->num == s->stacka->top && s->stacka->between != 1)
 		pa(s);
-	else if (s->stacka->num == 0)
+	else if (s->stacka->num == 0 && s->stacka->between != 1)
 	{
 		pa(s);
 		ra(s);

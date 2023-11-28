@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/25 18:31:22 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:02:39 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list3
 	int		minnum;
 	int		rot;
 	int		num;
+	int		between;
 }			t_Stack;
 
 typedef struct s_list2
@@ -67,7 +68,7 @@ void		sorting(t_Stacks_op *s);
 int			costcomp(t_Stacks_op *s);
 int			counterstack(t_Stacks_op *s, int i);
 // int			countbetween(t_Stacks_op *s, int j);
-int			counter(t_Stacks_op *s, int i);
+// int			counter(t_Stacks_op *s, int i);
 int			ra_or_rra(t_Stacks_op *s, int j);
 void		movetoa(t_Stacks_op *s, int i);
 int			maxa(t_Stacks_op *s);
@@ -75,5 +76,6 @@ int			mina(t_Stacks_op *s);
 void		between_ra(t_Stacks_op *s, int count);
 void		between_rra(t_Stacks_op *s, int count);
 int			exct(t_Stacks_op *s, int j, int x);
+void		betweenmaxmin(t_Stacks_op *s, int i);
 
 #endif
