@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/15 14:27:23 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:38:56 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,77 @@ int	checker(int argc, char **argv)
 	return (1);
 }
 
+int	max(t_Stack *s)
+{
+	int	temp;
+	int	i;
+
+	i = s->top;
+	temp = i--;
+	while (i != -1)
+	{
+		if (s->array[temp] < s->array[i])
+			temp = i;
+		i--;
+	}
+	return (temp);
+}
+
+int	next_mina(t_Stack *s, int val)
+{
+	int	temp;
+	int	i;
+
+	i = s->top;
+	temp = max(s);
+	while (i != -1)
+	{
+		if (s->array[temp] > s->array[i] && s->array[i] > val)
+			temp = i;
+		i--;
+	}
+	return (temp);
+}
+
+int	min(t_Stack *s)
+{
+	int	temp;
+	int	i;
+
+	i = s->top;
+	temp = i--;
+	while (i != -1)
+	{
+		if (s->array[temp] > s->array[i])
+			temp = i;
+		i--;
+	}
+	return (temp);
+}
+
+void	normalize(t_Stack *s){
+	int val;
+	int	i;
+	int minindex;
+	int  temp[s->top + 1];
+	
+	i = 0;
+	val = s->array[min(s)] - 1;
+	while(i <= s->top)
+	{
+		minindex = next_mina(s, val);
+		val = s->array[minindex];
+		temp[minindex] = i;
+		i++;
+	}
+	i = 0;
+	while(i <= s->top)
+	{
+		s->array[i] = temp[i];
+		i++;
+	}
+}
+
 void	addall(t_Stack *s, char **argv, int argc)
 {
 	int	i;
@@ -47,5 +118,6 @@ void	addall(t_Stack *s, char **argv, int argc)
 		push(s, ft_atoi(argv[i]));
 		i--;
 	}
+	normalize(s);
 }
 //push_swap "45 6 6" -"6" dosent work

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/30 14:19:09 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:43:33 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,23 @@ void	sorting(t_Stacks_op *s)
 {
 	int	x;
 
+	s->stacka->maxnum = s->stacka->array[maxa(s)];
+	while (s->stacka->top > 2 && sortedcheck(s->stacka) != 1 && s->stacka->top
+		- 1 > (2 * s->stacka->maxnum) / 3)
+	{
+		if (s->stacka->array[s->stacka->top] < s->stacka->maxnum / 3)
+			pb(s);
+		else
+			ra(s);
+	}
+	while (s->stacka->top > 2 && sortedcheck(s->stacka) != 1 && s->stacka->top
+		- 1 > s->stacka->maxnum / 3)
+	{
+		if (s->stacka->array[s->stacka->top] < (2 * s->stacka->maxnum) / 3)
+			pb(s);
+		else
+			ra(s);
+	}
 	while (s->stacka->top > 2 && sortedcheck(s->stacka) != 1)
 	{
 		pb(s);

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/30 14:20:57 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:56:25 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@ int	costcomp(t_Stacks_op *s)
 {
 	int	*arr2;
 	int	i;
+	int	j;
 	int	temp;
 
 	arr2 = (int *)malloc(sizeof(int) * (s->stackb->max_size + 1));
 	i = s->stackb->top;
+	j = 0;
 	while (i > -1)
 	{
-		arr2[i] = counterstack(s, i);
+		arr2[i] = counterstack(s, i) + j;
 		i--;
+		j++;
 	}
 	i = s->stackb->top;
 	temp = i;
@@ -34,6 +37,7 @@ int	costcomp(t_Stacks_op *s)
 			temp = i;
 		i--;
 	}
+	// ft_printf("%d\n",temp);
 	free(arr2);
 	return (temp);
 }
@@ -58,9 +62,6 @@ int	counterstack(t_Stacks_op *s, int i)
 		temp = arr[j];
 		if (temp < s->stackb->array[i] && arr[j - 1] > s->stackb->array[i])
 			return (exct(s, j, 1));
-		// else if (j == 0 && arr[0] < s->stackb->array[i]
-		// 	&& arr[s->stacka->top] > s->stackb->array[i])
-		// 	return (exct(s, s->stacka->top, 0));
 		j--;
 	}
 	return (0);
@@ -71,9 +72,6 @@ int	exct(t_Stacks_op *s, int j, int x)
 	int	i;
 
 	i = 0;
-	// ft_printf("num: %d\n", j);
-	// ft_printf("num top: %d\n", (s->stacka->top + 1) / 2);
-	// ft_printf("x: %d\n", x);
 	s->stacka->num = j;
 	if (x == 1)
 	{
@@ -111,28 +109,36 @@ void	betweenmaxmin(t_Stacks_op *s, int i)
 	}
 }
 
-// int	counter(t_Stacks_op *s, int i)
+// int	countbetween(t_Stacks_op *s, int j)
 // {
+// 	if ((s->stacka->top + 1) / 2 > j)
+// 		return (j);
+// 	return (j);
+// }
+
+// int	stacktime(t_Stacks_op *s, int i)
+// {
+// 	int	luckilest;
 // 	int	*arr;
 // 	int	j;
-// 	int	r;
 // 	int	temp;
 
-// 	r = 1;
 // 	j = s->stacka->top;
 // 	arr = s->stacka->array;
-// 	temp = arr[j--];
+// 	luckilest = s->stackb->top - i + 1;
+// 	if (s->stackb->array[i] > arr[s->stacka->maxnum])
+// 		return (betweenmaxmin(s, 2), exct(s, s->stacka->maxnum, 3));
+// 	if (s->stackb->array[i] < arr[s->stacka->minnum])
+// 		return (betweenmaxmin(s, 1), exct(s, s->stacka->minnum, 2));
+// 	if (arr[0] < s->stackb->array[i]
+// 		&& arr[s->stacka->top] > s->stackb->array[i])
+// 		return (exct(s, s->stacka->top, 2));
 // 	while (j != -1)
 // 	{
-// 		if (temp < i && arr[j] > i)
-// 		{
-// 			if ((s->stacka->top + 1) / 2 > j)
-// 				return (s->stacka->top - r + 1);
-// 			else
-// 				return (r);
-// 		}
-// 		temp = arr[j--];
-// 		r++;
+// 		temp = arr[j];
+// 		if (temp < s->stackb->array[i] && arr[j] > s->stackb->array[i])
+// 			return (luckilest + countbetween(s, j));
+// 		j--;
 // 	}
-// 	return (r);
+// 	return (luckilest);
 // }
