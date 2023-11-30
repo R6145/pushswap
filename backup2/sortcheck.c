@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:05:09 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/29 17:13:28 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:20:57 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,13 @@ int	exct(t_Stacks_op *s, int j, int x)
 	{
 		if ((s->stacka->top + 1) / 2 > j)
 			return (s->stacka->rot = 0, j + 1);
-		return (s->stacka->rot = 1, j);
+		return (s->stacka->rot = 1, s->stacka->top - j);
 	}
 	if (x == 3)
 	{
 		if ((s->stacka->top + 1) / 2 > j)
 			return (s->stacka->rot = 0, j);
-		return (s->stacka->rot = 1, j);
+		return (s->stacka->rot = 1, s->stacka->top - j + 1);
 	}
 	if ((s->stacka->top + 1) / 2 > j)
 		return (s->stacka->rot = 0, j);
