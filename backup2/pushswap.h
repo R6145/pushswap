@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/28 18:02:39 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/02 01:24:31 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,9 @@ void		between_ra(t_Stacks_op *s, int count);
 void		between_rra(t_Stacks_op *s, int count);
 int			exct(t_Stacks_op *s, int j, int x);
 void		betweenmaxmin(t_Stacks_op *s, int i);
+int			coststack(t_Stacks_op *s, int i);
+int			exct2(t_Stacks_op *s, int j, int x);
+void		fixmove(t_Stacks_op *s, int i, int x);
+int			bottomfix(t_Stacks_op *s, int j);
 
 #endif
