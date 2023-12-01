@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/30 17:38:56 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/02 02:40:31 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	checker(int argc, char **argv)
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (!((argv[i][j] >= 48 && argv[i][j] <= 57) || argv[i][j] == '-')) //half done for - ex: 2- still cosidreed 5%0
+			if (!((argv[i][j] >= 48 && argv[i][j] <= 57) || argv[i][j] == '-'))
+				// half done for - ex: 2- still cosidreed 5%0
 			{
 				return (0);
 			}
@@ -35,77 +36,6 @@ int	checker(int argc, char **argv)
 		i++;
 	}
 	return (1);
-}
-
-int	max(t_Stack *s)
-{
-	int	temp;
-	int	i;
-
-	i = s->top;
-	temp = i--;
-	while (i != -1)
-	{
-		if (s->array[temp] < s->array[i])
-			temp = i;
-		i--;
-	}
-	return (temp);
-}
-
-int	next_mina(t_Stack *s, int val)
-{
-	int	temp;
-	int	i;
-
-	i = s->top;
-	temp = max(s);
-	while (i != -1)
-	{
-		if (s->array[temp] > s->array[i] && s->array[i] > val)
-			temp = i;
-		i--;
-	}
-	return (temp);
-}
-
-int	min(t_Stack *s)
-{
-	int	temp;
-	int	i;
-
-	i = s->top;
-	temp = i--;
-	while (i != -1)
-	{
-		if (s->array[temp] > s->array[i])
-			temp = i;
-		i--;
-	}
-	return (temp);
-}
-
-void	normalize(t_Stack *s){
-	int val;
-	int	i;
-	int minindex;
-	int  temp[s->top + 1];
-	
-	i = 0;
-	val = s->array[min(s)] - 1;
-	while(i <= s->top)
-	{
-		minindex = next_mina(s, val);
-		val = s->array[minindex];
-		temp[minindex] = i;
-		i++;
-	}
-	i = 0;
-	while(i <= s->top)
-	{
-		s->array[i] = temp[i];
-		i++;
-	}
 }
 
 void	addall(t_Stack *s, char **argv, int argc)
@@ -118,6 +48,5 @@ void	addall(t_Stack *s, char **argv, int argc)
 		push(s, ft_atoi(argv[i]));
 		i--;
 	}
-	normalize(s);
 }
-//push_swap "45 6 6" -"6" dosent work
+// push_swap "45 6 6" -"6" dosent work

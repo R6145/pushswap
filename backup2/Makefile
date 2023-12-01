@@ -9,7 +9,7 @@
 
 NAME        := push_swap
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror -g
+FLAGS    := -Wall -Wextra -Werror -fsanitize=address -g3
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
@@ -72,10 +72,12 @@ SRCS        :=      libft/ft_atoi.c \
                           stack_op_r.c \
                           stack_op_rr.c \
                           stack_op_s.c \
-                          freestack.c \
                           sorting.c \
-                          sortcheck.c  \
-                          sortingutil.c \
+                          sorting_util.c \
+                          sorting_utill2.c \
+                          sorting_utill3.c \
+                          chunking_utill.c \
+
                           
 OBJS        := $(SRCS:.c=.o)
 
