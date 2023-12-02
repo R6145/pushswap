@@ -77,6 +77,7 @@ SRCS        :=      libft/ft_atoi.c \
                           sorting_utill2.c \
                           sorting_utill3.c \
                           chunking_utill.c \
+                          freemem.c \
 
                           
 OBJS        := $(SRCS:.c=.o)

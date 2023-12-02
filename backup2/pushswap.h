@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/02 03:01:00 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:03:24 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ typedef struct s_list2
 	t_Stack	*stacka;
 	t_Stack	*stackb;
 }			t_Stacks_op;
-// parsing
-// int			ft_atoi(const char *str);
+
 // stack
 t_Stack		*stack(int size);
 int			size(t_Stack *stack);
@@ -60,8 +59,12 @@ void		rra(t_Stacks_op *s);
 void		rrb(t_Stacks_op *s);
 void		rrr(t_Stacks_op *s);
 // parsing
+char		**mergeall(int argc, char **argv);
+void		freemergedall(char **val);
 int			checker(int argc, char **argv);
-void		addall(t_Stack *s, char **argv, int argc);
+int			checknumeric(int argc, char **argv);
+int			checkdup(char **argv);
+void		addall(t_Stack *s, char **argv);
 // sorting algo
 int			sortedcheck(t_Stack *s);
 void		s3(t_Stacks_op *s);
