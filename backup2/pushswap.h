@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/02 18:03:24 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:20:38 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			pop(t_Stack *stack);
 int			peek(t_Stack *stack);
 void		freestack(t_Stack *s);
 void		freestacks(t_Stacks_op *s);
+void		addall(t_Stack *s, char **argv);
 // stack opeartions
 t_Stacks_op	*stacks(t_Stack *s1, t_Stack *s2);
 void		sa(t_Stacks_op *s);
@@ -59,12 +60,16 @@ void		rra(t_Stacks_op *s);
 void		rrb(t_Stacks_op *s);
 void		rrr(t_Stacks_op *s);
 // parsing
+t_Stacks_op	*inti(char **temp);
+long		ft_atoilong(const char *str);
 char		**mergeall(int argc, char **argv);
 void		freemergedall(char **val);
-int			checker(int argc, char **argv);
-int			checknumeric(int argc, char **argv);
+int			checker(char **argv);
+int			checknumeric(char **argv);
 int			checkdup(char **argv);
-void		addall(t_Stack *s, char **argv);
+int			checkint(char **argv);
+int			checksign(char **argv);
+int			checksignu_util(char **argv);
 // sorting algo
 int			sortedcheck(t_Stack *s);
 void		s3(t_Stacks_op *s);

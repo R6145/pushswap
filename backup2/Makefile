@@ -74,10 +74,12 @@ SRCS        :=      libft/ft_atoi.c \
                           stack_op_s.c \
                           sorting.c \
                           sorting_util.c \
-                          sorting_utill2.c \
-                          sorting_utill3.c \
-                          chunking_utill.c \
+                          sorting_util2.c \
+                          sorting_util3.c \
+                          chunking_util.c \
                           freemem.c \
+                          parsing_util.c \
+
 
                           
 OBJS        := $(SRCS:.c=.o)

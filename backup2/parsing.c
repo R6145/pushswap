@@ -6,37 +6,45 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/02 20:22:25 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:26:42 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+#include <stdio.h>
 
-int	checker(int argc, char **temp)
+int	checker(char **temp)
 {
-	if (checknumeric(argc, temp) == 0)
+	if (checknumeric(temp) == 0)
+		return (ft_printf("Error\n"), 0);
+	else if (checksign(temp) == 0)
+		return (ft_printf("Error\n"), 0);
+	else if (checkint(temp) == 0)
 		return (ft_printf("Error\n"), 0);
 	else if (checkdup(temp) == 0)
 		return (ft_printf("Error\n"), 0);
 	return (1);
 }
 
-int	checknumeric(int argc, char **argv)
+int	checknumeric(char **argv)
 {
 	int	i;
 	int	j;
+	int	z;
 
 	j = 0;
 	i = 0;
-	while (i < argc - 1)
+	z = 0;
+	while (argv[z] != NULL)
+		z++;
+	z--;
+	while (i <= z)
 	{
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
 			if (!((argv[i][j] >= 48 && argv[i][j] <= 57) || argv[i][j] == '-'))
-			{
 				return (0);
-			}
 			j++;
 		}
 		i++;
@@ -73,41 +81,59 @@ int	checkdup(char **argv)
 	return (free(temp), 1);
 }
 
-char	**mergeall(int argc, char **argv)
+int	checksign(char **argv)
 {
-	int		i;
-	char	**temp;
-	char	*merged;
-	char	*mergedtemp;
+	int	i;
+	int	j;
+	int	flag;
 
-	i = 1;
-	merged = ft_strdup(" ");
-	while (i < argc)
+	i = 0;
+	while (0 <= checksignu_util(argv) - i)
 	{
-		mergedtemp = merged;
-		merged = ft_strjoin(merged, " ");
-		free(mergedtemp);
-		mergedtemp = merged;
-		merged = ft_strjoin(merged, argv[i]);
+		j = 0;
+		flag = 0;
+		while (argv[i][j] != '\0')
+		{
+			if (argv[i][j] == '-')
+			{
+				if (flag == 1 || argv[i][j + 1] == '\0')
+					return (0);
+				flag = 1;
+			}
+			else if (!((argv[i][j] >= 48 && argv[i][j] <= 57)))
+				return (0);
+			j++;
+		}
 		i++;
-		free(mergedtemp);
 	}
-	temp = ft_split(merged, 32);
-	free(merged);
-	return (temp);
+	return (1);
 }
 
-void	addall(t_Stack *s, char **argv)
+int	checkint(char **argv)
 {
-	int	j;
+	int		i;
+	long	*templong;
+	long	*temp;
+	int		z;
 
-	j = 0;
-	while (argv[j] != NULL)
-		j++;
-	j--;
-	while (j >= 0)
+	i = 0;
+	z = 0;
+	while (argv[z] != NULL)
+		z++;
+	z--;
+	temp = malloc(sizeof(long) * (z + 1));
+	if (!temp)
+		return (0);
+	templong = malloc(sizeof(long) * (z + 1));
+	if (!templong)
+		return (0);
+	while (i <= z)
 	{
-		push(s, ft_atoi(argv[j]));
-		j--;
+		temp[i] = ft_atoi(argv[i]);
+		templong[i] = ft_atoilong(argv[i]);
+		if (temp[i] != templong[i])
+			return (free(temp), free(templong), 0);
+		i++;
 	}
+	return (free(temp), free(templong), 1);
 }

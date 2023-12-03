@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:24:53 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 00:41:54 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:26:55 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,22 @@
 
 int	main(int argc, char **argv)
 {
-	t_Stack		*sa;
-	t_Stack		*sb;
 	t_Stacks_op	*s;
 	char		**temp;
 
 	if (argc == 1)
 		return (0);
-	sa = stack(argc);
-	sb = stack(argc);
-	s = stacks(sa, sb);
 	temp = mergeall(argc, argv);
-	if (checker(argc, temp) == 0)
+	s = inti(temp);
+	if (checker(temp) == 0)
 		return (freestacks(s), freemergedall(temp), 0);
-	addall(sa, temp);
-	// ft_printf("|||||||||||||||||||||\n");
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("%d\n", pop(s->stacka));
-	// ft_printf("|||||||||||||||||||||\n");
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
-	// ft_printf("%d\n", pop(s->stackb));
+	addall(s->stacka, temp);
 	normalize(s);
 	if (sortedcheck(s->stacka) == 1)
 		return (freestacks(s), freemergedall(temp), 0);
-	if (sa->top == 2)
+	if (s->stacka->top == 2)
 		s3(s);
-	else if (sa->top <= 4)
+	else if (s->stacka->top <= 4)
 		s5(s);
 	else
 		sorting(s);
@@ -55,6 +37,36 @@ int	main(int argc, char **argv)
 	freemergedall(temp);
 	return (0);
 }
+
+t_Stacks_op	*inti(char **temp)
+{
+	t_Stack	*sa;
+	t_Stack	*sb;
+	int		z;
+
+	z = 0;
+	while (temp[z] != NULL)
+		z++;
+	sa = stack(z);
+	sb = stack(z);
+	return (stacks(sa, sb));
+}
+
+void	addall(t_Stack *s, char **argv)
+{
+	int	j;
+
+	j = 0;
+	while (argv[j] != NULL)
+		j++;
+	j--;
+	while (j >= 0)
+	{
+		push(s, ft_atoi(argv[j]));
+		j--;
+	}
+}
+
 // fix this pge
 // fix 5-
 // fix long
