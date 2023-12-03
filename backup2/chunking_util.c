@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 02:29:03 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:25:21 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:30:59 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ void	normalize(t_Stacks_op *s)
 	int	minindex;
 	int	*temp;
 
-	i = 0;
+	i = 1;
 	temp = malloc(sizeof(int) * (s->stacka->top + 1));
 	val = s->stacka->array[mina(s)];
+	temp[mina(s)] = 0;
 	while (i <= s->stacka->top)
 	{
 		minindex = next_mina(s, val);

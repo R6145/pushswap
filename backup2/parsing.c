@@ -6,12 +6,11 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:26:42 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:54:42 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-#include <stdio.h>
 
 int	checker(char **temp)
 {

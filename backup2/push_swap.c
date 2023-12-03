@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:24:53 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:26:55 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:21:04 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,3 @@ void	addall(t_Stack *s, char **argv)
 		j--;
 	}
 }
-
-// fix this pge
-// fix 5-
-// fix long
-// fix "45 6 7" -"6" not working
