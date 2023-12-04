@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/02 03:18:19 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:11:41 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ void	chunking(t_Stacks_op *s)
 		- 1 > (2 * s->stacka->maxnum) / 3)
 	{
 		if (s->stacka->array[s->stacka->top] < s->stacka->maxnum / 3)
-			pb(s);
+			pb(s, 1);
 		else
-			ra(s);
+			ra(s, 1);
 	}
 	while (s->stacka->top > 2 && sortedcheck(s->stacka) != 1 && s->stacka->top
 		- 1 > s->stacka->maxnum / 3)
 	{
 		if (s->stacka->array[s->stacka->top] < (2 * s->stacka->maxnum) / 3)
-			pb(s);
+			pb(s, 1);
 		else
-			ra(s);
+			ra(s, 1);
 	}
 	while (s->stacka->top > 2 && sortedcheck(s->stacka) != 1)
-		pb(s);
+		pb(s, 1);
 }
 
 void	movetoa(t_Stacks_op *s)
@@ -60,11 +60,11 @@ void	movetoa(t_Stacks_op *s)
 	fixmove(s, num, 1);
 	count = counterstack(s, s->stackb->top);
 	if (s->stacka->num == s->stacka->top && s->stacka->between != 1)
-		pa(s);
+		pa(s, 1);
 	else if (s->stacka->num == 0 && s->stacka->between != 1)
 	{
-		pa(s);
-		ra(s);
+		pa(s, 1);
+		ra(s, 1);
 	}
 	else
 	{
@@ -84,18 +84,18 @@ void	fixmove(t_Stacks_op *s, int i, int x)
 		temp = s->stackb->array[i];
 		if ((s->stackb->top + 1) / 2 > i)
 			while (s->stackb->array[s->stackb->top] != temp)
-				rrb(s);
+				rrb(s, 1);
 		else
 			while (s->stackb->array[s->stackb->top] != temp)
-				rb(s);
+				rb(s, 1);
 	}
 	if (x == 2)
 	{
 		if ((s->stackb->top + 1) / 2 >= s->stacka->minnum)
 			while (sortedcheck(s->stacka) != 1)
-				ra(s);
+				ra(s, 1);
 		else
 			while (sortedcheck(s->stacka) != 1)
-				rra(s);
+				rra(s, 1);
 	}
 }

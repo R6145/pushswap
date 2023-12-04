@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_p.c                                       :+:      :+:    :+:   */
+/*   main_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 15:54:56 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/04 18:10:45 by fmaqdasi         ###   ########.fr       */
+/*   Created: 2023/12/04 13:25:43 by fmaqdasi          #+#    #+#             */
+/*   Updated: 2023/12/04 13:26:15 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	pa(t_Stacks_op *s, int x)
+t_Stacks_op	*inti(char **temp)
 {
-	int	z;
+	t_Stack	*sa;
+	t_Stack	*sb;
+	int		z;
 
-	if (s->stackb->top == -1)
-		return ;
-	z = pop(s->stackb);
-	push(s->stacka, z);
-	if (x == 1)
-		ft_printf("%s", "pa\n");
+	z = 0;
+	while (temp[z] != NULL)
+		z++;
+	sa = stack(z);
+	sb = stack(z);
+	return (stacks(sa, sb));
 }
 
-void	pb(t_Stacks_op *s, int x)
+void	addall(t_Stack *s, char **argv)
 {
-	int	z;
+	int	j;
 
-	if (s->stacka->top == -1)
-		return ;
-	z = pop(s->stacka);
-	push(s->stackb, z);
-	if (x == 1)
-		ft_printf("%s", "pb\n");
+	j = 0;
+	while (argv[j] != NULL)
+		j++;
+	j--;
+	while (j >= 0)
+	{
+		push(s, ft_atoi(argv[j]));
+		j--;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:45:57 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:20:38 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:24:34 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ void		freestacks(t_Stacks_op *s);
 void		addall(t_Stack *s, char **argv);
 // stack opeartions
 t_Stacks_op	*stacks(t_Stack *s1, t_Stack *s2);
-void		sa(t_Stacks_op *s);
-void		sb(t_Stacks_op *s);
-void		ss(t_Stacks_op *s);
-void		pa(t_Stacks_op *s);
-void		pb(t_Stacks_op *s);
-void		ra(t_Stacks_op *s);
-void		rb(t_Stacks_op *s);
-void		rc(t_Stacks_op *s);
-void		rra(t_Stacks_op *s);
-void		rrb(t_Stacks_op *s);
-void		rrr(t_Stacks_op *s);
+void		sa(t_Stacks_op *s, int x);
+void		sb(t_Stacks_op *s, int x);
+void		ss(t_Stacks_op *s, int x);
+void		pa(t_Stacks_op *s, int x);
+void		pb(t_Stacks_op *s, int x);
+void		ra(t_Stacks_op *s, int x);
+void		rb(t_Stacks_op *s, int x);
+void		rr(t_Stacks_op *s, int x);
+void		rra(t_Stacks_op *s, int x);
+void		rrb(t_Stacks_op *s, int x);
+void		rrr(t_Stacks_op *s, int x);
 // parsing
 t_Stacks_op	*inti(char **temp);
 long		ft_atoilong(const char *str);

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "checker.h": "c",
+        "pushswap.h": "c",
+        "libft.h": "c"
+    }
+}

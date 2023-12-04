@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:24:53 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 19:21:04 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:38:03 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,4 @@ int	main(int argc, char **argv)
 	freestacks(s);
 	freemergedall(temp);
 	return (0);
-}
-
-t_Stacks_op	*inti(char **temp)
-{
-	t_Stack	*sa;
-	t_Stack	*sb;
-	int		z;
-
-	z = 0;
-	while (temp[z] != NULL)
-		z++;
-	sa = stack(z);
-	sb = stack(z);
-	return (stacks(sa, sb));
-}
-
-void	addall(t_Stack *s, char **argv)
-{
-	int	j;
-
-	j = 0;
-	while (argv[j] != NULL)
-		j++;
-	j--;
-	while (j >= 0)
-	{
-		push(s, ft_atoi(argv[j]));
-		j--;
-	}
 }

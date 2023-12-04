@@ -6,68 +6,22 @@
 #    By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 18:19:18 by fmaqdasi          #+#    #+#              #
-#    Updated: 2023/12/04 00:34:19 by fmaqdasi         ###   ########.fr        #
+#    Updated: 2023/12/04 21:00:49 by fmaqdasi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME        := push_swap
+NAMEB        := checker
 CC          := cc
-AR          := ar rcs
 CFLAGS       := -Wall -Wextra -Werror
 RM		    := rm -f
+INCLUDE = -Ift_printf/ -Ilibft/
+LIBFT_DIR = libft/
+PRINTF_DIR = printf/
+LIBFT = libft/libft.a
+PRINTF = printf/libftprintf.a
 
-SRCS        :=            libft/ft_atoi.c \
-                          libft/ft_bzero.c \
-                          libft/ft_calloc.c \
-                          libft/ft_isalnum.c \
-                          libft/ft_isalpha.c \
-                          libft/ft_isascii.c \
-                          libft/ft_isdigit.c \
-                          libft/ft_isprint.c \
-                          libft/ft_itoa.c \
-                          libft/ft_lstadd_back.c \
-                          libft/ft_lstadd_front.c \
-                          libft/ft_lstclear.c \
-                          libft/ft_lstdelone.c \
-                          libft/ft_lstiter.c \
-                          libft/ft_lstlast.c \
-                          libft/ft_lstmap.c \
-                          libft/ft_lstnew.c \
-                          libft/ft_lstsize.c \
-                          libft/ft_memchr.c \
-                          libft/ft_memcmp.c \
-                          libft/ft_memcpy.c \
-                          libft/ft_memmove.c \
-                          libft/ft_memset.c \
-                          libft/ft_putchar_fd.c \
-                          libft/ft_putendl_fd.c \
-                          libft/ft_putnbr_fd.c \
-                          libft/ft_putstr_fd.c \
-                          libft/ft_split.c \
-                          libft/ft_strchr.c \
-                          libft/ft_strdup.c \
-                          libft/ft_striteri.c \
-                          libft/ft_strjoin.c \
-                          libft/ft_strlcat.c \
-                          libft/ft_strlcpy.c \
-                          libft/ft_strlen.c \
-                          libft/ft_strmapi.c \
-                          libft/ft_strncmp.c \
-                          libft/ft_strnstr.c \
-                          libft/ft_strrchr.c \
-                          libft/ft_strtrim.c \
-                          libft/ft_substr.c \
-                          libft/ft_tolower.c \
-                          libft/ft_toupper.c \
-                          parsing.c \
-                          printf/ft_printf.c \
-                          printf/ft_printf_cs.c \
-                          printf/ft_printf_du.c \
-                          printf/ft_printf_fun.c \
-                          printf/ft_printf_p.c \
-                          printf/ft_printf_xX.c \
-                          push_swap.c \
+SRCS        :=            parsing.c \
                           smallalgo.c \
                           sortedcheck.c \
                           stack.c \
@@ -82,27 +36,55 @@ SRCS        :=            libft/ft_atoi.c \
                           chunking_util.c \
                           freemem.c \
                           parsing_util.c \
+                          main_util.c \
 
+SRCS2        :=           checker_error.c \
+                          checker_util.c \
+
+SRCSM1       :=            push_swap.c \
+
+SRCSM2       :=            checker.c \
 
                           
-OBJS        := $(addsuffix .o,$(basename $(SRCS)))
+OBJS        := $(SRCS:.c=.o)
+OBJS2        := $(SRCS2:.c=.o)
+OBJSNAME    := $(SRCSM1:.c=.o)
+OBJSNAME2   := $(SRCSM2:.c=.o)
 
-${NAME}:	${OBJS}
-			${AR} ${NAME} ${OBJS}
-			@echo "\033[1;32m $(NAME) created"
+LIBS = -L$(LIBFT_DIR) -L$(PRINTF_DIR) -lft -lftprintf
+
+.c.o:
+	@${CC} ${CFLAGS} $(INCLUDE) -c $< -o $@
+    
+${NAME}:	${OBJS} ${OBJSNAME} $(LIBFT) $(PRINTF)
+			@${CC} ${CFLAGS} $(INCLUDES) ${OBJS} ${OBJSNAME} $(LIBS) -o ${NAME} 
+			@echo "\033[0;32mPush swap compiled successfully"
+$(LIBFT):
+	        @make -C $(LIBFT_DIR) -s
+
+$(PRINTF):
+			@make -C $(PRINTF_DIR) -s
 
 all:		${NAME}
 
-bonus:		all
+bonus:		${OBJS} ${OBJS2} ${OBJSNAME2} all
+			@${CC} ${CFLAGS} $(INCLUDES) ${OBJS} ${OBJS2} $(LIBS) ${OBJSNAME2} -o ${NAMEB}
+			@echo "\033[0;32mChecker compiled successfully"
 
 clean:
-			@ ${RM} *.o */*.o
-			@ echo "\033[1;31m Deleting objs"
+			@${RM} *.o
+			@make -C $(LIBFT_DIR) clean -s
+			@make -C $(PRINTF_DIR) clean -s
+			@echo "\033[0;31mObjects removed successfully"
+
 
 fclean:		clean
-			@ ${RM} ${NAME}
-			@ echo "\033[1;31m Deleting $(NAME)"
+			@${RM} ${NAME} ${NAMEB}
+			@make -C $(LIBFT_DIR) fclean -s
+			@make -C $(PRINTF_DIR) fclean -s
+			@echo "\033[0;31mAll created objects were removed successfully"
 
-re:			fclean all
+re:			fclean all bonus
+			@echo "\033[0;32mPush swap and checker were recompiled successfully"
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus

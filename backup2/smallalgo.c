@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 14:01:54 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 15:48:37 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:09:38 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ void	s3(t_Stacks_op *s)
 	j = s->stacka->array;
 	if (j[1] > j[0] && j[1] > j[2])
 	{
-		rra(s);
+		rra(s, 1);
 		if (j[2] > j[1])
-			sa(s);
+			sa(s, 1);
 	}
 	if (j[2] > j[0])
-		ra(s);
+		ra(s, 1);
 	if (j[2] > j[1])
-		sa(s);
+		sa(s, 1);
 }
 
 void	s5(t_Stacks_op *s)
 {
 	while (s->stacka->top > 2 && sortedcheck(s->stacka) != 1)
-		pb(s);
+		pb(s, 1);
 	s3(s);
 	s->stacka->maxnum = maxa(s);
 	s->stacka->minnum = mina(s);

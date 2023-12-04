@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/03 18:54:42 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:07:59 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	checker(char **temp)
 {
 	if (checknumeric(temp) == 0)
-		return (ft_printf("Error\n"), 0);
+		return (ft_printf("Error1\n"), 0);
 	else if (checksign(temp) == 0)
-		return (ft_printf("Error\n"), 0);
+		return (ft_printf("Error2\n"), 0);
 	else if (checkint(temp) == 0)
-		return (ft_printf("Error\n"), 0);
+		return (ft_printf("Error3\n"), 0);
 	else if (checkdup(temp) == 0)
-		return (ft_printf("Error\n"), 0);
+		return (ft_printf("Error4\n"), 0);
 	return (1);
 }
 
@@ -42,7 +42,8 @@ int	checknumeric(char **argv)
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (!((argv[i][j] >= 48 && argv[i][j] <= 57) || argv[i][j] == '-'))
+			if (!((argv[i][j] >= 48 && argv[i][j] <= 57) || argv[i][j] == '-'
+					|| argv[i][j] == ' '))
 				return (0);
 			j++;
 		}
