@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 00:35:59 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:37:37 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 22:09:51 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ int	main(int argc, char **argv)
 	freeall(line, inst, list, s);
 	return (0);
 }
-
