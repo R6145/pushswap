@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 19:37:20 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:37:57 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 21:51:16 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*readline(void)
 	int		x;
 
 	x = 1;
-	st = malloc(1);
+	st = malloc(2);
 	line = ft_strdup("");
 	while (x > 0)
 	{

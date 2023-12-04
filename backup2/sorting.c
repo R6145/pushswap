@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:57:02 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/04 18:11:41 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 21:44:03 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,12 @@ void	fixmove(t_Stacks_op *s, int i, int x)
 	}
 	if (x == 2)
 	{
-		if ((s->stackb->top + 1) / 2 >= s->stacka->minnum)
-			while (sortedcheck(s->stacka) != 1)
-				ra(s, 1);
-		else
+		s->stacka->maxnum = maxa(s);
+		if ((s->stacka->top + 1) / 2 >= s->stacka->maxnum)
 			while (sortedcheck(s->stacka) != 1)
 				rra(s, 1);
+		else
+			while (sortedcheck(s->stacka) != 1)
+				ra(s, 1);
 	}
 }

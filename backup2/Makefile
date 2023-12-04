@@ -6,7 +6,7 @@
 #    By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 18:19:18 by fmaqdasi          #+#    #+#              #
-#    Updated: 2023/12/04 21:00:49 by fmaqdasi         ###   ########.fr        #
+#    Updated: 2023/12/04 21:13:31 by fmaqdasi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ fclean:		clean
 			@make -C $(PRINTF_DIR) fclean -s
 			@echo "\033[0;31mAll created objects were removed successfully"
 
-re:			fclean all bonus
-			@echo "\033[0;32mPush swap and checker were recompiled successfully"
+re:			fclean all
+			@echo "\033[0;32mPush swap was recompiled successfully"
 
 .PHONY:		all clean fclean re bonus
