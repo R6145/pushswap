@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:39:04 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/05 13:55:01 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:54:25 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,10 @@ int	checkempty(int argc, char **argv)
 int	checkspace(int argc, char **argv)
 {
 	int	i;
-	int	j;
-	int	flag;
 
 	i = 0;
-	j = 0;
-	flag = 0;
 	while (i < argc)
 	{
-		flag = 0;
 		if (ft_strncmp(argv[i], "", 10) == 0)
 			return (0);
 		i++;
