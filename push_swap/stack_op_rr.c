@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:06:25 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/11/12 18:21:59 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:06:18 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,24 @@ static void	rev_rotate(t_Stack *s1)
 	freestack(x);
 }
 
-void	rra(t_Stacks_op *s)
+void	rra(t_Stacks_op *s, int x)
 {
 	rev_rotate(s->stacka);
-	ft_printf("%s", "rra\n");
+	if (x == 1)
+		ft_printf("%s", "rra\n");
 }
 
-void	rrb(t_Stacks_op *s)
+void	rrb(t_Stacks_op *s, int x)
 {
 	rev_rotate(s->stackb);
-	ft_printf("%s", "rrb\n");
+	if (x == 1)
+		ft_printf("%s", "rrb\n");
 }
 
-void	rrr(t_Stacks_op *s)
+void	rrr(t_Stacks_op *s, int x)
 {
 	rev_rotate(s->stacka);
 	rev_rotate(s->stackb);
-	ft_printf("%s", "rrr\n");
+	if (x == 1)
+		ft_printf("%s", "rrr\n");
 }
