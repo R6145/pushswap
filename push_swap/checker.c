@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 00:35:59 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/05 14:10:26 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:06:17 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	if (check_checker(inst, line) == 0 || checker(list, argc, argv) == 0)
 		return (freeall(line, inst, list, s), 0);
 	addall(s->stacka, list);
+	if (sortedcheck(s->stacka) == 1 && checknumeric(inst) == 0)
+		return (freeall(line, inst, list, s), ft_printf("Error\n"), 0);
 	normalize(s);
 	do_op(inst, s);
 	if (sortedcheck(s->stacka) == 1 && s->stackb->top == -1)
