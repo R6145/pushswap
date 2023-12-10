@@ -6,7 +6,7 @@
 #    By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 18:19:18 by fmaqdasi          #+#    #+#              #
-#    Updated: 2023/12/07 20:18:00 by fmaqdasi         ###   ########.fr        #
+#    Updated: 2023/12/07 16:29:13 by fmaqdasi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,10 +68,11 @@ $(PRINTF):
 			
 all:		${NAME}
 
-bonus:	${OBJS} ${OBJS2} ${OBJSNAME2} $(LIBFT) $(PRINTF)
+${NAMEB}: ${OBJS} ${OBJS2} ${OBJSNAME2} $(LIBFT) $(PRINTF)
 			@${CC} ${CFLAGS} $(INCLUDES) ${OBJS} ${OBJS2} $(LIBS) ${OBJSNAME2} -o ${NAMEB}
 			@echo "\033[0;32mChecker compiled successfully"
-	
+
+bonus:	${NAMEB}	
 
 clean:
 			@${RM} *.o
