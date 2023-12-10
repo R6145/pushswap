@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:25:43 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/04 22:09:39 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/07 20:36:06 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	addall(t_Stack *s, char **argv)
 	while (j >= 0)
 	{
 		push(s, ft_atoi(argv[j]));
+		// ft_printf("%d\n",ft_atoi(argv[j]));
 		j--;
 	}
 }

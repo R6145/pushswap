@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:34:22 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/05 13:54:51 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:41:12 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	checkint(char **argv)
 	{
 		temp[i] = ft_atoi(argv[i]);
 		templong[i] = ft_atoilong(argv[i]);
-		if (temp[i] != templong[i])
+		if (temp[i] != templong[i] || ft_strlen(argv[i]) > 13)
 			return (free(temp), free(templong), 0);
 		i++;
 	}

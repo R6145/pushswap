@@ -6,7 +6,7 @@
 /*   By: fmaqdasi <fmaqdasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:40:22 by fmaqdasi          #+#    #+#             */
-/*   Updated: 2023/12/04 18:05:45 by fmaqdasi         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:51:15 by fmaqdasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	swap(t_Stack *s1)
 	int	x;
 	int	y;
 
-	if (s1->top < 2)
+	if (s1->top < 1)
 		return ;
 	x = pop(s1);
 	y = pop(s1);
